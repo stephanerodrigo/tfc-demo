@@ -19,6 +19,8 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
+data "aws_vpc" "vpc_sro" {}
+
 data "aws_vpc" "vpc_sro" {
   tags = {
     "Env" = "SRO_TST"
