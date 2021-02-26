@@ -44,7 +44,7 @@ resource "aws_instance" "tfc-demo" {
   instance_type = "t3.micro"
   availability_zone = "${var.region}a"
   subnet_id = "${aws_subnet.subnet_sro.id}"
-  vpc_security_group_ids = "${aws_security_group..id}"
+  vpc_security_group_ids = "${aws_security_group.sg-sro.id}"
 
   tags = {
     Name = "tfc-demo"
