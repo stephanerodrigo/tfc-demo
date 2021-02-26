@@ -30,11 +30,11 @@ data "aws_availability_zones" "available" {}
 
 data "aws_subnet" "subnet_sro" {
   availability_zone = data.aws_availability_zones.available.names[0]
-  vpc_id = data.aws_vpc.vpc_sro.id
+  vpc_id = data.aws_vpc.VPC_SRO_TST.id
 }
 
 data "aws_security_group" "sg-sro"{
-  vpc_id = data.aws_vpc.vpc_sro.id
+  vpc_id = data.aws_vpc.VPC_SRO_TST.id
 
   tags = {
     Name = "SG_SRO_TST"
