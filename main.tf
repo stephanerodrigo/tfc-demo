@@ -21,7 +21,7 @@ data "aws_ami" "ubuntu" {
 
 data "aws_vpc" "vpc_sro" {
   tags = {
-    "Name" = "VPC_SRO_TST"
+    "Env" = "SRO_TST"
   }
 }
 
