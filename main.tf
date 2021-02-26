@@ -45,7 +45,7 @@ resource "aws_instance" "tfc-demo" {
   count         = var.EC2_count
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
-  availability_zone = var.region"a"
+  availability_zone = var.aws_region"a"
   subnet_id = data.aws_subnet.subnet_sro.id
   vpc_security_group_ids = data.aws_security_group.sg-sro.id
 
