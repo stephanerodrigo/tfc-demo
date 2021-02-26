@@ -1,6 +1,6 @@
 output "subnet_id" {
   description = "List of IDs of VPC subnets of instances"
-  value       = aws_instance.bayer_instance.*.subnet_id
+  value       = aws_instance.ec2_instance.*.subnet_id
 }
 
 output "EC2_count" {
@@ -10,5 +10,5 @@ output "EC2_count" {
 
 output "id" {
   description = "List of IDs of instances"
-  value       = aws_instance.bayer_instance.*.id
+  value       = aws_instance.ec2_instance.*.id
 }

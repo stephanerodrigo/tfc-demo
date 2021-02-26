@@ -1,4 +1,4 @@
-resource "aws_instance" "bayer_instance" {
+resource "aws_instance" "ec2_instance" {
   count         = var.EC2_count
   ami           = var.ami_id
   instance_type = var.instance_type
