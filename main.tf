@@ -25,8 +25,10 @@ data "aws_vpc" "vpc_sro" {
   }
 }
 
+data "aws_availability_zones" "available" {}
+
 data "aws_subnet" "subnet_sro" {
-  availability_zone = "${data.aws_availability_zones.availability.names[0]}"
+  availability_zone = "${data.aws_availability_zones.available.names[0]}"
   vpc_id = "${data.aws_vpc.vpc_sro.id}"
 }
 
