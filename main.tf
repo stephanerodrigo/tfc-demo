@@ -19,7 +19,7 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-data "aws_vpc" "VPC_SRO_TST" {
+data "aws_vpc" "vpc_sro" {
   tags = {
     "Name" = "VPC_SRO_TST"
   }
@@ -30,11 +30,11 @@ data "aws_availability_zones" "available" {}
 
 data "aws_subnet" "subnet_sro" {
   availability_zone = data.aws_availability_zones.available.names[0]
-  vpc_id = data.aws_vpc.VPC_SRO_TST.id
+  vpc_id = data.aws_vpc.vpc_sro.id
 }
 
 data "aws_security_group" "sg-sro"{
-  vpc_id = data.aws_vpc.VPC_SRO_TST.id
+  vpc_id = data.aws_vpc.vpc_sro.id
 
   tags = {
     Name = "SG_SRO_TST"
