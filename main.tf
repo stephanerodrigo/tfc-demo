@@ -27,6 +27,7 @@ data "aws_vpc" "vpc_sro" {
 
 data "aws_availability_zones" "available" {}
 
+
 data "aws_subnet" "subnet_sro" {
   availability_zone = "${data.aws_availability_zones.available.names[0]}"
   vpc_id = "${data.aws_vpc.vpc_sro.id}"
@@ -45,8 +46,8 @@ resource "aws_instance" "tfc-demo" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
   availability_zone = "${var.region}a"
-  subnet_id = "${aws_subnet.subnet_sro.id}"
-  vpc_security_group_ids = "${aws_security_group.sg-sro.id}"
+  subnet_id = "${data.aws_subnet.subnet_sro.id}"
+  vpc_security_group_ids = "${data.aws_security_group.sg-sro.id}"
 
   tags = {
     Name = "tfc-demo"
